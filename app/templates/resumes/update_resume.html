@@ -1,0 +1,179 @@
+{% include "head.html" %}
+<body align="center">
+{% include "navbar.html" %}
+<h1 align="center">Update Resume</h1>
+
+<div class="container mt-3">
+  <form class="needs-validation" novalidate action="/resumes/update/{{ resume.id_ }}" method="post" enctype="multipart/form-data">
+    <div class="mb-3 mt-3">
+      <label for="resume.first_name">First name:</label>
+      <input type="text" class="form-control" id="resume.first_name" value="{{ resume.first_name }}" name="first_name">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3">
+      <label for="last_name">Last name:</label>
+      <input type="text" class="form-control" id="last_name" value="{{ resume.last_name }}" name="last_name">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3">
+      <label for="title">Title:</label>
+      <input type="text" class="form-control" id="title" value="{{ resume.title }}" name="title">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" value="{{ resume.email }}" name="email">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3">
+      <label for="phone_number">Phone Number:</label>
+      <input type="text" class="form-control" id="phone_number" value="{{ resume.phone_number }}" name="phone_number">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3">
+      <label for="linkedin">Linkedin:</label>
+      <input type="text" class="form-control" id="linkedin" value="{{ resume.linkedin }}" name="linkedin">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3">
+      <label for="github">Github:</label>
+      <input type="text" class="form-control" id="github" value="{{ resume.github }}" name="github">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="location">Location:</label>
+      <input type="text" class="form-control" id="location" value="{{ resume.location }}" name="location">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="summary">Summary:</label>
+        <input type="text" class="form-control" id="summary" value="{{ resume.summary }}" name="summary">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="education">Education:</label>
+        <input type="text" class="form-control" id="education" value="{{ resume.education }}" name="education">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="job_experience">Job experience:</label>
+        <input type="text" class="form-control" id="job_experience" value="{{ resume.job_experience }}" name="job_experience">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="hard_skills">Hard skills:</label>
+      <input type="text" class="form-control" id="hard_skills" value="{{ resume.hard_skills }}" name="hard_skills">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="soft_skills">Soft skills:</label>
+      <input type="text" class="form-control" id="soft_skills" value="{{ resume.soft_skills }}" name="soft_skills">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="languages">Languages:</label>
+      <input type="text" class="form-control" id="languages" value="{{ resume.languages }}" name="languages">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+
+<script>
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    var forms = document.getElementsByClassName('needs-validation');
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+
+$(document).ready(function () {
+    $('#title').on('input', function (e) {
+        console.log($(this).val());
+    });
+});
+</script>
+
+</body>
+{% include "footer.html" %}

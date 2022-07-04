@@ -1,0 +1,179 @@
+{% include "head.html" %}
+<body align="center">
+{% include "navbar.html" %}
+<h1 align="center">Create Resume</h1>
+
+<div class="container mt-3">
+  <form class="needs-validation" novalidate action="/create-resume" method="post" enctype="multipart/form-data">
+    <div class="mb-3 mt-3">
+      <label for="first_name">First name:</label>
+      <input type="text" class="form-control" id="first_name" placeholder="Enter your first name" name="first_name">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3">
+      <label for="last_name">Last name:</label>
+      <input type="text" class="form-control" id="last_name" placeholder="Enter your last name" name="last_name">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+      <div class="mb-3 mt-3">
+      <label for="title">Title:</label>
+      <input type="text" class="form-control" id="title" placeholder="Enter your expected position" name="title">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="phone_number">Phone Number:</label>
+      <input type="text" class="form-control" id="phone_number" placeholder="Enter phone number" name="phone_number">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+      <div class="mb-3 mt-3">
+      <label for="linkedin">LinkedIn link:</label>
+      <input type="text" class="form-control" id="linkedin" placeholder="Enter LinkedIn link" name="linkedin">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+      <div class="mb-3 mt-3">
+      <label for="github">Github link:</label>
+      <input type="text" class="form-control" id="github" placeholder="Enter Github link" name="github">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="location">Location:</label>
+      <input type="text" class="form-control" id="location" placeholder="Enter location" name="location">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="summary">Summary:</label>
+        <textarea class="form-control" rows="5" id="summary" placeholder="Enter summary (3-5 sentences)" name="summary"></textarea>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="education">Education:</label>
+        <textarea class="form-control" rows="5" id="education" placeholder="e.g. 09.2014-06.2019 - Lviv Polytechnic National University Master's degree in Management" name="education"></textarea>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="job_experience">Job history:</label>
+        <textarea class="form-control" rows="5" id="job_experience" placeholder="Enter job history in descending order" name="job_experience"></textarea>
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="hard_skills">Hard skills:</label>
+      <input type="text" class="form-control" id="hard_skills" placeholder="Enter hard skills" name="hard_skills">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="soft_skills">Soft skills:</label>
+      <input type="text" class="form-control" id="soft_skills" placeholder="Enter soft skills" name="soft_skills">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="languages">Languages:</label>
+      <input type="text" class="form-control" id="languages" placeholder="Enter languages" name="languages">
+        <div class="valid-feedback">
+            Looks good!
+        </div>
+        <div class="invalid-feedback">
+            Enter correct value!
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+
+<script>
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    var forms = document.getElementsByClassName('needs-validation');
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+
+$(document).ready(function () {
+    $('#title').on('input', function (e) {
+        console.log($(this).val());
+    });
+});
+</script>
+
+</body>
+{% include "footer.html" %}

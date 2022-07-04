@@ -1,0 +1,87 @@
+.navbar {
+    font-family: "Droid Sans Mono Slashed";
+    font-size: 42px;
+    background-color: white;
+}
+.logo-img {
+    width: 150px;
+}
+h1 {
+    font-family: "Droid Sans Mono Slashed";
+    font-size: 72px;
+}
+h2 {
+    font-family: "Droid Sans Mono Slashed"
+}
+h3 {
+    font-family: "Droid Sans Mono Slashed";
+    text-align: center;
+    color: black;
+    font-size: 52px;
+}
+h4 {
+    font-family: "Droid Sans Mono Slashed"
+}
+h5 {
+    font-family: "Droid Sans Mono Slashed"
+}
+a {
+    color: black;
+}
+a:hover{
+    color: slategrey;
+}
+
+.nav-link {
+    font-size: 42px;
+    color: black;
+}
+.nav-link:hover{
+    color: slategrey;
+}
+body{
+    background-color: whitesmoke;
+}
+.div-resumes {
+    text-align: center;
+    font-size: 36px;
+}
+.container-index {
+    color: green;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+footer {
+    background-color: lightgrey;
+    /*color: black;*/
+}
+
+li {
+    color: white;
+}
+
+
+.footer-p {
+    font-size: 20px;
+    color: black;
+}
+p {
+    font-size: 16px;
+    /*color: black;*/
+}
+
+
+.btn {
+    background-color: slategrey;
+    color: white;
+    border-color: slategrey;
+}
+.btn:hover {
+    background-color: black;
+}
+
+
+
+.footer-pp {
+    color: black;
+}

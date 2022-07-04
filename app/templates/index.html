@@ -1,0 +1,16 @@
+{% include "head.html" %}
+{% include "navbar.html" %}
+{% block content %}
+<div class="container-index" align="center">
+    <h1>Welcome to Lucky CV Maker!</h1>
+{% if user %}
+<h3>To create your own lucky CV you need click on "Create CV" and enter your data. </h3>
+<h2>Good luck!</h2>
+{% else %}
+<h3>To create your CV, you must login/register and activate your account!</h3>
+{% endif %}
+    </div>
+</div>
+
+{% include "footer.html" %}
+{% endblock %}

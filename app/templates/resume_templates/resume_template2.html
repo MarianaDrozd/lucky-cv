@@ -1,0 +1,69 @@
+{% include "head.html" %}
+	<link rel="stylesheet" href="/static/template2_style.css" />
+{#{% include "navbar.html" %}#}
+	<div class="container">
+
+		<h2 align="center" id="name">{{ resume.first_name }} {{ resume.last_name }}</h2>
+        <h3>{{ resume.title }}</h3>
+		<div id="designation" align="center">
+
+			<span class="resume.email">{{ resume.email }}</span>
+			<span class="resume.contacts">{{ resume.phone_number }}</span>
+            <span class="resume.linkedin">{{ resume.linkedin }}</span>
+            <span class="resume.github">{{ resume.github }}</span>
+            <span class="resume.location">{{ resume.location }}</span>
+		</div>
+
+
+
+
+	<div class="content" role=main>
+
+		<section id="summary">
+			<h3 class="title">Summary</h3>
+			<div class="resume-summary">
+				<p>
+					{{ resume.summary }}
+				</p>
+			</div> <!-- end description -->
+		</section>
+        <section id="job_experience">
+			<h3 class="title">Job Experience</h3>
+			<div class="job_experience">
+            {{ resume.job_experience }}
+			</div> <!-- end description -->
+		</section>
+
+		<section id="Education">
+			<h3 class="title">Education</h3>
+			<div class="education">
+            {{ resume.education }}
+			</div> <!-- end description -->
+		</section>
+
+		<section id="hard_skills">
+			<h3 class="title">Hard Skills</h3>
+			<div class="hard_skills">
+            {{ resume.hard_skills }}
+			</div> <!-- end description -->
+		</section>
+
+        <section id="soft_skills">
+			<h3 class="title">Soft Skills</h3>
+			<div class="soft_skills">
+            {{ resume.soft_skills }}
+			</div> <!-- end description -->
+		</section>
+
+
+
+
+
+
+
+
+
+
+
+
+	</div> <!-- end container -->

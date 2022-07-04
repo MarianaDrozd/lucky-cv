@@ -1,0 +1,331 @@
+openapi: 3.0.0
+info:
+  title: Resumes API
+  version: 1.0.0
+servers:
+  - url: http://127.0.0.1:5000
+tags:
+  - name: Resumes
+paths:
+  /APIv1/auth/user-register:
+    post:
+      tags:
+        - User
+      summary: Register new user
+      requestBody:
+        required: true
+        description: New user info
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserIn'
+      responses:
+        '201':
+          description: User was created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserIn'
+  /APIv1/auth/login:
+    post:
+      tags:
+        - User
+      summary: User's login
+      requestBody:
+        required: true
+        description: New user info
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLogin'
+      responses:
+        '200':
+          description: Login ok
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserIn'
+  /APIv1/auth/logout:
+    get:
+      tags:
+        - User
+      summary: User's logout
+      responses:
+        '440':
+          description: User's logout
+          content:
+            application/json:
+              example:
+                message: logout
+        '401':
+          description: User not authorized
+          content:
+            application/json:
+              example:
+                message: User not authorized
+  /APIv1/resumes:
+    get:
+      tags:
+        - Resumes
+      summary: Get list of resumes
+      responses:
+        '200':
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResumesOut'
+    post:
+      tags:
+        - Resumes
+      summary: Create new resume
+      requestBody:
+        required: true
+        description: New resume info
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResumeIn'
+      responses:
+        '201':
+          description: Created
+        '400':
+          description: Bad Input
+          content:
+            application/json:
+              example:
+                message: Please, specify 'title', 'first_name', 'last_name', 'email', 'phone_number', 'linked_in','github', 'location', 'summary', 'education', 'job_experience', 'hard_skills', 'soft_skills', 'languages'.
+  /APIv1/resumes/{id_}:
+    get:
+      tags:
+        - Resume
+      parameters:
+        - name: id_
+          in: path
+          schema:
+            type: integer
+          description: id of the resume
+          required: true
+      summary: Get one resume by id
+      responses:
+        '200':
+          description: Successful Operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResumeOut'
+        '404':
+          description: Resume Not Found
+          content:
+            application/json:
+              example:
+                message: Resume not found.
+    patch:
+      tags:
+        - Resume
+      summary: Updates resume's info
+      parameters:
+        - name: id_
+          in: path
+          schema:
+            type: integer
+          description: id of the resume
+          required: true
+      requestBody:
+        required: true
+        description: Resume's updated info
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResumeIn'
+      responses:
+        '200':
+          description: Successful Operation
+          content:
+            application/json:
+              example:
+                message: Updated.
+        '404':
+          description: Resume Not Found
+          content:
+            application/json:
+              example:
+                message: Resume not found
+    delete:
+      tags:
+        - Resume
+      summary: Remove resume by id
+      parameters:
+        - name: id_
+          in: path
+          schema:
+            type: integer
+          description: resume id
+          required: true
+      responses:
+        '200':
+          description: Successful Operation
+          content:
+            application/json:
+              example:
+                message: Deleted.
+        '404':
+          description: Resume Not Found
+          content:
+            application/json:
+              example:
+                message: Resume not found
+components:
+  schemas:
+    UserIn:
+      type: object
+      properties:
+        username:
+          type: string
+          example: my_username
+        email:
+          type: string
+          example: mariasyad@gmail.com
+        password:
+          type: string
+          example: password
+        is_admin:
+          type: boolean
+          example: false
+        is_active:
+          type: boolean
+          example: true
+    UserLogin:
+      type: object
+      properties:
+        email:
+          type: string
+          example: mariasyad@gmail.com
+        password:
+          type: string
+          example: password
+    UserOut:
+      type: object
+      properties:
+        id_:
+          type: integer
+          example: 1
+        username:
+          type: string
+          example: my_username
+        email:
+          type: string
+          example: mariasyad@gmail.com
+        password:
+          type: string
+          example: password
+        is_active:
+          type: boolean
+          example: true
+    UsersOut:
+      type: array
+      items:
+        $ref: '#/components/schemas/UsersOut'
+    ResumeIn:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Junior Python Developer
+        first_name:
+          type: string
+          example: Elvis
+        last_name:
+          type: string
+          example: Presley
+        email:
+          type: string
+          example: example@mail.com
+        phone_number:
+          type: string
+          example: +380123456789
+        linkedin:
+          type: string
+          example: linked.in
+        github:
+          type: string
+          example: github
+        location:
+          type: string
+          example: Washington D.C., USA
+        summary:
+          type: string
+          example: summary
+        education:
+          type: string
+          example: education
+        job_experience:
+          type: string
+          example: job experience
+        hard_skills:
+          type: string
+          example: Python, Flask
+        soft_skills:
+          type: string
+          example: soft skills
+        language:
+          type: string
+          example: English
+        is_active:
+          type: boolean
+          example: True
+    ResumeOut:
+      type: object
+      properties:
+        id_:
+          type: integer
+          example: 1
+        title:
+          type: string
+          example: Junior Python Developer
+        first_name:
+          type: string
+          example: Elvis
+        last_name:
+          type: string
+          example: Presley
+        email:
+          type: string
+          example: example@mail.com
+        phone_number:
+          type: string
+          example: +380123456789
+        linkedin:
+          type: string
+          example: linked.in
+        github:
+          type: string
+          example: github
+        location:
+          type: string
+          example: Washington D.C., USA
+        summary:
+          type: string
+          example: summary
+        education:
+          type: string
+          example: education
+        job_experience:
+          type: string
+          example: job experience
+        hard_skills:
+          type: string
+          example: Python, Flask
+        soft_skills:
+          type: string
+          example: soft skills
+        language:
+          type: string
+          example: English
+        is_active:
+          type: boolean
+          example: True
+    ResumesOut:
+      type: array
+      items:
+        $ref: '#/components/schemas/ResumeOut'

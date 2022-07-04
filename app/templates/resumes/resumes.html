@@ -1,0 +1,22 @@
+{% include "navbar.html" %}
+{% include "head.html" %}
+{% if resumes %}
+    <div class="div-resumes">
+    {% for resume in resumes %}
+        <tr>
+        <a href="/resumes/{{ resume.id }}/print">
+        <td>{{ resume.first_name }}</td>
+        <td>{{ resume.last_name }}</td>
+        </a>
+        <div>
+        <a href="/print-pdf-file/{{ resume.id }}" class="btn btn-info btn-xs">Print</a>
+        <a href="/resumes/update/{{ resume.id }}" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit{{ resume.id }}">Edit</a>
+        <a href="resumes/{{ resume.id }}/delete" class="btn btn-danger btn-xs" onclick="return confirm('Are you sure to delete?')">Delete</a>
+        </div>
+        </tr>
+    {% endfor %}
+    </div>
+{% else %}
+    <h3>There is no CV yet! Create!</h3>
+{% endif %}
+{% include "footer.html" %}
